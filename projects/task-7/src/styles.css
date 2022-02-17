@@ -1,5 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,500&display=swap');
+
+@import "~bootstrap-icons/font/bootstrap-icons.css";
 
 * {
     font-family: 'Playfair Display', serif;
@@ -11,4 +14,14 @@ html {
 
 .my-light-grey {
     background-color: rgb(233, 232, 232);
+}
+
+.my-input {
+    border: none;
+    border-bottom: 1px solid #ccc;
+    margin-top: 30px;
+}
+
+.form-control.ng-touched.ng-invalid {
+    border: 2px solid red;
 }

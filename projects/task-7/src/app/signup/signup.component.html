@@ -1,0 +1,128 @@
+<!-- <p>signup works!</p> -->
+<section id="singup" class="container-fluid">
+  <div class="row bg-white m-1 mt-2 shadow-lg rounded">
+    <div
+      class="col-md-4 col-sm-md-3 col-sm-6 d-flex flex-column justify-content-center align-items-center p-3"
+    >
+      <div>
+        <h4>Sign Up Now!!</h4>
+        <small>Please enter your details</small>
+      </div>
+      <div>
+        <form
+          #singupForm="ngForm"
+          class="d-flex flex-column justify-content-between"
+          (ngSubmit)="submit()"
+        >
+          <div class="form-group">
+            <label for="usernameField" class="mt-3">Username</label>
+            <input
+              [(ngModel)]="model.username"
+              #username="ngModel"
+              type="text"
+              name="usernameField"
+              id="usernameField"
+              class="form-control"
+              required
+              minlength="5"
+              maxlength="10"
+              (change)="logUser(username)"
+            />
+            <div
+              class="alert-danger"
+              *ngIf="username.touched && !username.valid"
+            >
+              <div *ngIf="username.errors?.['required']">
+                username is required.
+              </div>
+              <div *ngIf="username.errors?.['minlength']">
+                Min. lenght required. is
+                {{username.errors?.['minlength'].requiredLength}} chars
+              </div>
+              <div *ngIf="username.errors?.['pattern']">
+                username must container a number
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="emailField" class="mt-2">Email</label>
+            <input
+              [(ngModel)]="model.email"
+              #emailField="ngModel"
+              type="email"
+              name="emailField"
+              id="emailField"
+              class="form-control"
+              required
+            />
+          </div>
+          <div class="alert-danger" *ngIf="emailField.touched && !emailField.valid">
+              email is required.
+          </div>
+
+          <div class="form-group">
+            <label for="passField" class="mt-2">Password</label>
+            <div class="d-flex flex-row">
+              <input
+                [(ngModel)]="model.password"
+                #password="ngModel"
+                type="password"
+                name="passField"
+                id="passField"
+                class="form-control"
+                required
+              />
+              <i
+                #eye
+                (click)="onEyeCLick(eye,'passField')"
+                class="bi bi-eye-slash"
+                id="togglePassword"
+              ></i>
+            </div>
+            <div class="alert-danger" *ngIf="password.touched && !password.valid">
+              password is required.
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="confirmPassField" class="mt-2">Confirm Password</label>
+            <div class="d-flex flex-row">
+              <input
+                ngModel
+                #confirmPass="ngModel"
+                id="confirmPassField"
+                type="password"
+                name="confirmPassField"
+                class="form-control"
+                required
+              />
+              <i
+                #eye2
+                (click)="onEyeCLick(eye2, 'confirmPassField')"
+                class="bi bi-eye-slash"
+                id="togglePassword"
+              ></i>
+            </div>
+            <div class="alert-danger" *ngIf="confirmPass.touched && !confirmPass.valid">
+              password does not match.
+            </div>
+          </div>
+
+          <!-- <div class="align-self-end mt-2 text-success">forget password?</div> -->
+          <button
+            #btn_submit
+            type="submit"
+            class="btn btn-primary mt-3"
+            [disabled]="!singupForm.form.valid"
+          >
+            Submit
+          </button>
+        </form>
+      </div>
+    </div>
+    <div class="col-md-8 col-sm-md-9 col-sm-6 p-0">
+      <img id="svg" src="../../assets/hamburger.jpg" alt="sign-in svg" />
+    </div>
+  </div>
+</section>

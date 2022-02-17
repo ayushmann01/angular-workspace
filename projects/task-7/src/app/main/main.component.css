@@ -1,0 +1,53 @@
+
+#home {
+    width: 100%;
+    height: 100vh;
+    background-image: url("../../assets/hamburger.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-bottom: 50px;
+}
+
+#aboutImg {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 5px;
+}
+
+.my-input {
+    border: none;
+    border-bottom: 1px solid #ccc;
+    margin-top: 30px;
+}
+
+.my-light-grey {
+    background-color: rgb(233, 232, 232);
+}
+
+
+button:hover {
+    background-color: grey;
+}
+
+
+@media (max-width: 768px) {
+    #home {
+        background-size: contain;
+        height: 350px;
+    }
+}
+
+@media (max-width: 1080px) {
+    #home {
+        background-size: cover;
+        height: 500px;
+    }
+}
+
+@media (max-width: 800px) {
+    #home {
+        background-size: cover;
+        height: 300px;
+    }
+}

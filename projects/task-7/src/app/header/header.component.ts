@@ -41,12 +41,12 @@ export class HeaderComponent implements OnInit {
     // this.jumpTo('menu');
     this.activatedRoute.fragment.subscribe(res => {
       // console.log(res);
-      this.jumpTo(res+"");
+      this.jumpTo(res);
     });
 
   }
 
-  jumpTo(section: string) {
+  jumpTo(section: any) {
     setTimeout(() => {
       document.getElementById(section)?.scrollIntoView({behavior: 'smooth'});
     });
