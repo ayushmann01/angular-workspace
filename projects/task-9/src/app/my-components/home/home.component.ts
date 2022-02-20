@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserAPIService } from '../../user-api.service';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private httpService: UserAPIService) { }
+
+  entries: any;
 
   ngOnInit(): void {
+    this.httpService.getEntries().subscribe(
+      (response) => {
+        this.entries = response
+      }, (error) => { console.log(error) }
+    )
   }
-
 }
+
