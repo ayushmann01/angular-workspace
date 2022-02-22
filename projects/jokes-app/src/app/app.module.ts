@@ -5,6 +5,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { JokeComponent } from './joke/joke.component';
+import { JokesService } from './services/jokes-service.service';
 
 @NgModule({
   declarations: [

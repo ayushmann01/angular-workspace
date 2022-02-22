@@ -1,4 +1,5 @@
 <div class="container mt-5">
+    <p *ngIf="this.loading" > Loading... </p>
     <div class="joke bg-secondary text-white mt-2 p-5 rounded" *ngFor="let joke of jokes">
         <h5>{{joke.getTitle()}}</h5>
         <button #btn (click)="onClick(joke)" class="btn btn-primary">Tell Me</button>
