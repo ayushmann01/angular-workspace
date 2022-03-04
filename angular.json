@@ -310,6 +310,104 @@
           }
         }
       }
+    },
+    "d3-app": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:application": {
+          "strict": true
+        }
+      },
+      "root": "projects/d3-app",
+      "sourceRoot": "projects/d3-app/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/d3-app",
+            "index": "projects/d3-app/src/index.html",
+            "main": "projects/d3-app/src/main.ts",
+            "polyfills": "projects/d3-app/src/polyfills.ts",
+            "tsConfig": "projects/d3-app/tsconfig.app.json",
+            "assets": [
+              "projects/d3-app/src/favicon.ico",
+              "projects/d3-app/src/assets"
+            ],
+            "styles": [
+              "projects/d3-app/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "projects/d3-app/src/environments/environment.ts",
+                  "with": "projects/d3-app/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "d3-app:build:production"
+            },
+            "development": {
+              "browserTarget": "d3-app:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "d3-app:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/d3-app/src/test.ts",
+            "polyfills": "projects/d3-app/src/polyfills.ts",
+            "tsConfig": "projects/d3-app/tsconfig.spec.json",
+            "karmaConfig": "projects/d3-app/karma.conf.js",
+            "assets": [
+              "projects/d3-app/src/favicon.ico",
+              "projects/d3-app/src/assets"
+            ],
+            "styles": [
+              "projects/d3-app/src/styles.css"
+            ],
+            "scripts": []
+          }
+        }
+      }
     }  },
-  "defaultProject": "JokesApp"
+  "defaultProject": "d3-app"
 }
